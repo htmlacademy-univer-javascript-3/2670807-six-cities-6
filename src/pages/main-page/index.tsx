@@ -95,12 +95,8 @@ function MainPage({ offersCount }: MainPageProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-              </div>
+                  {Array.from({ length: offersCount }).map((_, index) => (<OfferCard key={index} />))}
+                </div>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
