@@ -5,6 +5,7 @@
 │       ├── build.yml
 │       ├── check.yml
 │       └── publish.yml
+│
 ├── markup/
 │   ├── css/
 │   │   ├── main.css
@@ -22,29 +23,43 @@
 │   ├── property-not-logged.html
 │   ├── property.html
 │   └── Readme.md
+│
 ├── node_modules/
+│
 ├── public/
 │   ├── css/
 │   │   ├── main.css
 │   │   └── main.css.map
 │   ├── fonts/
 │   └── img/
+│
 ├── src/
+│   ├── app/
+│   │   ├── app-router.tsx
+│   │   ├── app.tsx             
+│   │   └── routes.ts 
+│   │
 │   ├── components/
-│   |   └── offer-card/
-│   │      └── index.tsx
+│   |   ├── offer-card/
+│   │   │   └── offer-card.tsx
+│   │   └── private-route/
+│   │       └── private-route.tsx
+│   │
 │   ├── pages/
 │   |   ├── favorites-page/
-│   │   |  └── index.tsx
+│   │   |   └── favourites-page.tsx
 │   |   ├── login-page/
-│   │   |  └── index.tsx
+│   │   |   └── login-page.tsx
 │   |   ├── main-page/
-│   │   |  └── index.tsx
+│   │   |   └── main-page.tsx
+│   │   ├── not-found-page/
+│   │   │   └── not-found-page.tsx
 │   |   └── offer-page/
-│   │      └── index.tsx
-│   ├── App.tsx
+│   │       └── offer-page.tsx
+│   │
 │   ├── index.tsx
 │   └── setupTests.ts
+│
 ├── .editorconfig
 ├── .eslintrc.cjs
 ├── .gitattributes

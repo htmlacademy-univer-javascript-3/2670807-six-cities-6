@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from './app/app';
 
-const RENTAL_OFFERS_COUNT = 315;
+const RENTAL_OFFERS_COUNT = 4;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
