@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import MainPage from '../pages/main-page/main-page';
-import LoginPage from '../pages/login-page/login-page';
-import FavouritesPage from '../pages/favourites-page/favourites-page';
-import OfferPage from '../pages/offer-page/offer-page';
-import NotFoundPage from '../pages/not-found-page/not-found-page';
+import MainPage from '../pages/main-page';
+import LoginPage from '../pages/login-page';
+import FavouritesPage from '../pages/favourites-page';
+import OfferPage from '../pages/offer-page';
+import NotFoundPage from '../pages/not-found-page';
 import { AppRoute } from './routes';
-import { PrivateRoute } from '../components/private-route/private-route';
+import { PrivateRoute } from '../components/private-route';
 
 type AppRouterProps = {
   offersCount: number;
