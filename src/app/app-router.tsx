@@ -6,17 +6,18 @@ import OfferPage from '../pages/offer-page';
 import NotFoundPage from '../pages/not-found-page';
 import { AppRoute } from './routes';
 import { PrivateRoute } from '../components/private-route';
+import { Offer } from '../types/offer';
 
 type AppRouterProps = {
-  offersCount: number;
+  offers: Offer[];
 }
 
-export function AppRouter({ offersCount }: AppRouterProps): JSX.Element {
+export function AppRouter({ offers }: AppRouterProps): JSX.Element {
   return (
     <Routes>
       <Route
         path={AppRoute.Main}
-        element={<MainPage offersCount={offersCount} />}
+        element={<MainPage offers={offers} />}
       />
       <Route
         path={AppRoute.Login}
@@ -26,13 +27,13 @@ export function AppRouter({ offersCount }: AppRouterProps): JSX.Element {
         path={AppRoute.Favorites}
         element={
           <PrivateRoute isAuthorized={false}>
-            <FavouritesPage />
+            <FavouritesPage offers={offers} />
           </PrivateRoute>
         }
       />
       <Route
         path={AppRoute.Offer}
-        element={<OfferPage />}
+        element={<OfferPage offers={offers} />}
       />
       <Route
         path={AppRoute.NotFound}

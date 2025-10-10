@@ -1,14 +1,15 @@
 import { BrowserRouter } from 'react-router-dom';
 import { AppRouter } from './app-router';
+import { Offer } from '../types/offer';
 
 type AppProps = {
-  offersCount: number;
+  offers: Offer[];
 }
 
-function App({ offersCount }: AppProps): JSX.Element {
+function App({ offers }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
-      <AppRouter offersCount={offersCount} />
+      <AppRouter offers={offers} />
     </BrowserRouter>
   );
 }
