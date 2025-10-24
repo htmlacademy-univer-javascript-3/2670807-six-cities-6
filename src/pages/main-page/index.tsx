@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import OfferList from '../../components/offer-list';
+import Map from '../../components/map';
 import { Offer } from '../../types/offer';
 
 type MainPageProps = {
@@ -8,8 +9,7 @@ type MainPageProps = {
 
 function MainPage({ offers }: MainPageProps): JSX.Element {
   const offersCount = offers.length;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_activeOfferId, setActiveOfferId] = useState<number | null>(null);
+  const [activeOfferId, setActiveOfferId] = useState<number | null>(null);
 
   const handleCardMouseEnter = (offerId: number) => {
     setActiveOfferId(offerId);
@@ -18,6 +18,9 @@ function MainPage({ offers }: MainPageProps): JSX.Element {
   const handleCardMouseLeave = () => {
     setActiveOfferId(null);
   };
+
+  const selectedPoint = offers.find((offer) => offer.id === activeOfferId);
+  const city = offers[0]?.city;
 
   return (
     <div className="page page--gray page--main">
@@ -87,7 +90,14 @@ function MainPage({ offers }: MainPageProps): JSX.Element {
               />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              {city && (
+                <Map
+                  city={city}
+                  points={offers}
+                  selectedPoint={selectedPoint}
+                  className="cities__map"
+                />
+              )}
             </div>
           </div>
         </div>
