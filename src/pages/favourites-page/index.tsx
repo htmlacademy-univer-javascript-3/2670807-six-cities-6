@@ -1,22 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Offer } from '../../types/offer';
 import { AppRoute } from '../../app/routes';
+import { useFavorites } from '../../hooks/use-favorites';
 
 type FavoritesPageProps = {
   offers: Offer[];
 }
 
 function FavoritesPage({ offers }: FavoritesPageProps): JSX.Element {
-  const favoriteOffers = offers.filter((offer) => offer.isFavorite);
-
-  const favoritesByCity = favoriteOffers.reduce<Record<string, Offer[]>>((acc, offer) => {
-    const city = offer.city.name;
-    if (!acc[city]) {
-      acc[city] = [];
-    }
-    acc[city].push(offer);
-    return acc;
-  }, {});
+  // Use the custom hook to get the processed favorite offers
+  const { favoriteOffers, favoritesByCity } = useFavorites(offers);
 
   return (
     <div className="page">
@@ -35,6 +28,7 @@ function FavoritesPage({ offers }: FavoritesPageProps): JSX.Element {
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
+                    {/* The favoriteOffers variable is available directly from the hook */}
                     <span className="header__favorite-count">{favoriteOffers.length}</span>
                   </Link>
                 </li>
@@ -54,6 +48,7 @@ function FavoritesPage({ offers }: FavoritesPageProps): JSX.Element {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
+              {/* The favoritesByCity variable is also from the hook, so the JSX remains unchanged */}
               {Object.entries(favoritesByCity).map(([city, cityOffers]) => (
                 <li className="favorites__locations-items" key={city}>
                   <div className="favorites__locations locations locations--current">
